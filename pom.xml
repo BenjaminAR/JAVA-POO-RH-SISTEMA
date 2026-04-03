@@ -10,11 +10,17 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.mycompany.hmc_sistema_recursos_humanos.HMC_SISTEMA_RECURSOS_HUMANOS</exec.mainClass>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc11</artifactId>
-            <version>23.3.0.23.09</version>
-        </dependency>
-    </dependencies>
+<dependencies>
+    <dependency>
+        <groupId>com.oracle.database.jdbc</groupId>
+        <artifactId>ojdbc11</artifactId>
+        <version>23.3.0.23.09</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>1.5.4</version>
+    </dependency>
+</dependencies>
 </project>
