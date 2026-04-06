@@ -22,7 +22,7 @@ public class HMC_EmpleadoDAO {
     Connection con;
     PreparedStatement ps;
 
-    //Metodo para obtener los empleados segun emp_details_view
+    //Metodo para obtener los empleados segun emp_details_view y crear los objetos HMC_Empleado(), que despues seran captador por CargarTablaDAO
     public List<HMC_Empleado> listar() {
         List<HMC_Empleado> lista = new ArrayList<>();
 
@@ -69,6 +69,47 @@ public class HMC_EmpleadoDAO {
         return lista;
     }
 
+
+       public void cargarTablaDAO() {
+        this.dao = new HMC_EmpleadoDAO();
+        List<HMC_Empleado> lista = dao.listar();
+
+        // 1. Obtenemos el modelo. 
+        // Si queremos que sea dinámico, llamamos al método que genera las columnas desde la BD
+        DefaultTableModel modelo = dao.obtenerModeloTabla();
+
+        // Limpiamos filas por si acaso el modelo ya traía datos
+        modelo.setRowCount(0);
+
+        // 2. Llenamos el modelo (jTable) con la lista de objetos almacenados en la variable lista creada por el metodo listar()
+        for (HMC_Empleado emp : lista) {
+            modelo.addRow(new Object[]{
+                emp.getEmployeeId(), 
+                emp.getFirstName(), 
+                emp.getLastName(), 
+                emp.getSalary(), 
+                emp.getComision(),
+                emp.getNombreDepartamento(),
+                emp.getPuesto(),
+                emp.getCiudad(),
+                emp.getEstado(),
+                emp.getPais(),
+                emp.getContinente(),
+                emp.getGender(),
+                emp.getBirthDay()
+            });
+        }
+
+        // 3. Asignamos el modelo cargado a tu componente JTable
+        TableEmpleado.setModel(modelo);
+
+        // 4. Tip Minimalista: Ocultar columnas que no quieres que el usuario vea pero que necesitas (como el ID)
+        if (TableEmpleado.getColumnCount() > 0) {
+            TableEmpleado.getColumnModel().getColumn(0).setPreferredWidth(50);
+        }
+    }
+    
+    
     //Metodo para insertar un objeto de tipo empleado a la base de datos en la tabla employees
     public boolean insertar(HMC_Empleado emp) {
         
