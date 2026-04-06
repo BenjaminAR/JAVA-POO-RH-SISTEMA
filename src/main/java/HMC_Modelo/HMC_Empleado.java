@@ -3,33 +3,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package HMC_Modelo;
+import java.util.Date;
 
 /**
  *
  * @author Benjamin
  */
-public class HMC_Empleado {
+public class HMC_Empleado extends HMC_Persona {
 
     private int employeeId;
-    private String firstName;
-    private String lastName;
-    private String email;
     private double salary;
-    private int departmentId;
-    private String JobId;
+    private int departmentId; // Departamento
+    private String jobId; // Puesto
+    private String cuentaBancaria;
+    private Date hireDate;
+    private double comision;
+    private String nombreDepartamento;
+    private String puesto;
+    private String nss;
+    private int gerente;
 
     public HMC_Empleado() {
     }
 
-    public HMC_Empleado(int employeeId, String firstName, String lastName, String email, double salary, int departmentId, String JobId) {
+    public HMC_Empleado(int personaId, String firstName, String lastName, String direccion, String ciudad, String estado, String pais, String continente, String email, String gender, Date birthDay, String Phone_number, String rfc, String curp, int employeeId, double salary, int departmentId, String jobId, String cuentaBancaria, Date hireDate, double comision, String nombreDepartamento, String puesto, String nss, int gerente) {
+
+        super(personaId, firstName, lastName, direccion, ciudad, estado, pais, continente, email, gender, birthDay, Phone_number, rfc, curp);
+
         this.employeeId = employeeId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.salary = salary;
         this.salary = salary;
         this.departmentId = departmentId;
-        this.JobId = JobId;
+        this.jobId = jobId;
+        this.cuentaBancaria = cuentaBancaria;
+        this.hireDate = hireDate;
+        this.comision = comision;
+        this.nombreDepartamento = nombreDepartamento;
+        this.puesto = puesto;
+        this.nss = nss;
     }
 
     public int getEmployeeId() {
@@ -38,30 +48,6 @@ public class HMC_Empleado {
 
     public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public double getSalary() {
@@ -81,12 +67,68 @@ public class HMC_Empleado {
     }
 
     public String getJobId() {
-        return JobId;
+        return jobId;
     }
 
-    public void setJobId(String JobId) {
-        this.JobId = JobId;
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
     }
+
+    public String getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentaBancaria(String cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
+    }
+
+    public Date getHireDate() {
+        return hireDate;
+    }
+
+    public void setHireDate(Date hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public double getComision() {
+        return comision;
+    }
+
+    public void setComision(double comision) {
+        this.comision = comision;
+    }
+
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
+
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+    public String getNss() {
+        return nss;
+    }
+
+    public void setNss(String nss) {
+        this.nss = nss;
+    }
+
+    public int getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(int gerente) {
+        this.gerente = gerente;
+    }
+
     
-
 }
